@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //-Ricreare lo sportello automatico che fa fare prelievi e bonifici e mantiene traccia del conto dopo le operazioni, che si comporti in maniera perpertua finchè l’utente preme l’opzione per chiudere. Usare ciclo while.
+
+        let totaleConto = 2000;
+        let operazioni;
+
+        while (operazioni != 4) {
+            operazioni = parseInt(prompt("Salve, benvenuti in Banca Intesa.\n\n Premi 1 per fare il prelievo. \n\n Premi 2 per effettuare un bonifico. \n\n Premi 3 per sapere il saldo attuale. \n\n Premi 4 per uscire."))
+
+            let importo;
+
+            switch (operazioni) {
+                case 1:
+
+                    importo = parseInt(prompt("Inserisci l'importo: "));
+                    if (totaleConto - importo >= 0) {
+                        totaleConto -= importo;
+                        alert("Il prelievo è andato a buon fine")
+                        alert("Il saldo attuale è ora di " + totaleConto + " euro")
+                    } else
+                        alert("Saldo insufficiente")
+
+                    break;
+
+                case 2:
+
+                    importo = parseInt(prompt("Inserisci l'importo: "));
+                    if (totaleConto - importo >= 0) {
+                        let destinatario = (prompt("Inserire IBAN destinatario"))
+                        totaleConto -= importo;
+                        alert("Il bonifico è andato a buon fine a queste cordinate " + destinatario + " torna a trovarci")
+                        alert("Il saldo attuale è ora di " + totaleConto + " euro")
+                    } else
+                        alert("Saldo insufficiente")
+
+                    break;
+
+                case 3:
+
+                    alert("Saldo attuale è di " + totaleConto + " euro")
+
+                    break;
+
+                case 4:
+
+                    alert("Arrivederci")
+
+                    break;
+
+                default:
+                    alert("Operazione non supportata")
+                    break;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
